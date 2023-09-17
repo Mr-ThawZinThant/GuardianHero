@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 export(Resource) var PlayerMovement
 
-export var acceleration = 500
-export var speed = 80
-export var friction = 500
+export var acceleration = 0.1
+export var speed = 200
+export var friction = 0.1
 
 var velocity: Vector2 = Vector2.ZERO
 
