@@ -11,9 +11,10 @@ var velocity: Vector2 = Vector2.ZERO
 enum {
 	MOVE,
 	IDLE,
-	ATTACK,
-	DEATH
 }
+
+#Animaton 
+onready var anim_sprite: AnimatedSprite = $PinkGirl/AnimationPlayer
 
 var state = MOVE
 func _physics_process(delta):
@@ -21,7 +22,6 @@ func _physics_process(delta):
 		MOVE:
 			walk(delta)
 		
-
 func apply_friction(dir):
 	if dir.length() > 0:
 		velocity = lerp(velocity, dir * speed, acceleration)
