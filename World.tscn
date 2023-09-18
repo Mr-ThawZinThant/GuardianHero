@@ -1,8 +1,8 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=75 format=2]
 
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Free Fantasy Dreamland - Sprites/32x32/Character_001.png" type="Texture" id=2]
-[ext_resource path="res://Slime.gd" type="Script" id=3]
+[ext_resource path="res://Enemies/Slime/Slime.gd" type="Script" id=3]
 [ext_resource path="res://assets/Pixelarium - Enemy Pack1 - Free Version/Slime/Blue Slime/spr_Blue_slime_attack.png" type="Texture" id=4]
 [ext_resource path="res://assets/Pixelarium - Enemy Pack1 - Free Version/Slime/Blue Slime/spr_Blue_slime_walk.png" type="Texture" id=5]
 [ext_resource path="res://assets/Pixelarium - Enemy Pack1 - Free Version/Slime/Blue Slime/spr_Blue_slime_idle.png" type="Texture" id=6]
@@ -124,9 +124,6 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=18]
 radius = 11.0
 height = 10.0
-
-[sub_resource type="CircleShape2D" id=21]
-radius = 91.0879
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 4 )
@@ -324,6 +321,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CircleShape2D" id=65]
+radius = 8.06226
+
+[sub_resource type="CircleShape2D" id=21]
+radius = 91.0879
+
 [node name="World" type="Node2D"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
@@ -349,20 +352,19 @@ shape = SubResource( 18 )
 [node name="Slime" type="KinematicBody2D" parent="."]
 script = ExtResource( 3 )
 
-[node name="YSort" type="YSort" parent="Slime"]
-position = Vector2( 238, 73 )
-
-[node name="AggroZone" type="Area2D" parent="Slime/YSort"]
-position = Vector2( 184, 20 )
-script = ExtResource( 9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slime/YSort/AggroZone"]
-position = Vector2( 65, 149 )
-shape = SubResource( 21 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slime/YSort"]
-
-[node name="Bat" type="AnimatedSprite" parent="Slime/YSort"]
-position = Vector2( 250, 169 )
+[node name="Bat" type="AnimatedSprite" parent="Slime"]
+position = Vector2( 529, 219 )
 frames = SubResource( 64 )
 animation = "Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slime"]
+position = Vector2( 529, 220 )
+shape = SubResource( 65 )
+
+[node name="AggroZone" type="Area2D" parent="Slime"]
+position = Vector2( 422, 93 )
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slime/AggroZone"]
+position = Vector2( 106, 127 )
+shape = SubResource( 21 )

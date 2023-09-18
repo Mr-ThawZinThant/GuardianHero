@@ -13,8 +13,8 @@ enum {
 	ROAM
 }
  
-onready var sprite = $YSort/Bat
-onready var AggroZone = $YSort/AggroZone
+onready var sprite = $Bat
+onready var AggroZone = $AggroZone
 
 var velocity = Vector2.ZERO 
 var knockback = Vector2.ZERO
@@ -27,7 +27,8 @@ var state = CHASE
 func _physics_process(delta):
 	match state:
 		IDLE:
-			idle()
+			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+			seek_player()
 		CHASE:
 			var player = AggroZone.player
 			#has founded player
@@ -40,18 +41,17 @@ func _physics_process(delta):
 		DEATH:
 			death()
 		ROAM:
-			roam()
+			seek_player()
+			
 	
 	velocity = move_and_slide(velocity)
-	
+
+func seek_player():
+	if AggroZone.see_player():
+		state = CHASE
+
 func attack():
 	pass 
-
-func idle():
-	pass
-
-func roam():
-	pass
 
 func death():
 	pass
