@@ -6,19 +6,22 @@ var friction = 0.1
 
 enum {
 	IDLE,
-	WALK,
+	CHASE,
 	ATTACK,
 	DEATH, 
 	ROAM
 }
 
-var state = IDLE
+var velocity = Vector2.ZERO 
+var knockback = Vector2.ZERO
+
+var state = CHASE
 func _physics_process(delta):
 	match state:
 		IDLE:
 			idle()
-		WALK:
-			walk()
+		CHASE:
+			chase()
 		ATTACK:
 			attack()
 		DEATH:
@@ -26,7 +29,7 @@ func _physics_process(delta):
 		ROAM:
 			roam()
 
-func walk():
+func chase():
 	pass 
 	
 func attack():
