@@ -1,9 +1,8 @@
 extends KinematicBody2D
 
-const MAX_SPEED = 200
-var speed = 100
-var acceleration = 0.1 
-var friction = 0.1
+const MAX_SPEED = 100
+var acceleration = 300
+var friction = 200
 
 enum {
 	IDLE,
@@ -19,11 +18,7 @@ onready var AggroZone = $AggroZone
 var velocity = Vector2.ZERO 
 var knockback = Vector2.ZERO
 
-func _ready():
-	pass
-	
 var state = CHASE
-
 func _physics_process(delta):
 	match state:
 		IDLE:
@@ -33,7 +28,8 @@ func _physics_process(delta):
 			var player = AggroZone.player
 			#has founded player
 			if player != null:
-				accelerate_towards_point(player.global_position , delta)
+				var direction = (player.global_position - global_position).normalized()
+				velocity = velocity.move_toward(direction * MAX_SPEED, acceleration * delta)
 			else: 
 				state = IDLE
 		ATTACK:
@@ -41,9 +37,8 @@ func _physics_process(delta):
 		DEATH:
 			death()
 		ROAM:
-			seek_player()
+			pass
 			
-	
 	velocity = move_and_slide(velocity)
 
 func seek_player():
@@ -56,10 +51,4 @@ func attack():
 func death():
 	pass
 
-func accelerate_towards_point(point, delta):
-	var direction = global_position.direction_to(point)
-	velocity = velocity.move_toward(direction * MAX_SPEED, acceleration * delta)
-	sprite.flip_h = velocity.x < 0
-	
-func random_state():
-	pass
+

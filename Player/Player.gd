@@ -14,7 +14,7 @@ enum {
 }
 
 #Animaton 
-onready var anim_sprite: AnimatedSprite = $PinkGirl/AnimationPlayer
+onready var anim_sprite: AnimationPlayer = $PinkGirl/AnimationPlayer
 
 var state = MOVE
 func _physics_process(delta):
