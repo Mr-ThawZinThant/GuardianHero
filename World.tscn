@@ -352,17 +352,17 @@ script = ExtResource( 3 )
 [node name="YSort" type="YSort" parent="Slime"]
 position = Vector2( 238, 73 )
 
-[node name="Area2D" type="Area2D" parent="Slime/YSort"]
+[node name="AggroZone" type="Area2D" parent="Slime/YSort"]
 position = Vector2( 184, 20 )
 script = ExtResource( 9 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slime/YSort/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slime/YSort/AggroZone"]
 position = Vector2( 65, 149 )
 shape = SubResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slime/YSort"]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Slime/YSort"]
+[node name="Bat" type="AnimatedSprite" parent="Slime/YSort"]
 position = Vector2( 250, 169 )
 frames = SubResource( 64 )
 animation = "Walk"
