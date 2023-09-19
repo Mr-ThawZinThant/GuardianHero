@@ -12,7 +12,7 @@ position = Vector2( 0, 3 )
 position = Vector2( 578, 239 )
 
 [node name="Slime2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 623, 244 )
+position = Vector2( 766, 368 )
 
 [node name="Slime3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 589, 281 )
+position = Vector2( 535, 402 )

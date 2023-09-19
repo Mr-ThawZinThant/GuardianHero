@@ -12,7 +12,7 @@ enum {
 	ROAM
 }
  
-onready var sprite = $Bat
+onready var sprite = $SlimeSprite
 onready var AggroZone = $AggroZone
 onready var RoamController = $Roam
 
