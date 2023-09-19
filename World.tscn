@@ -7,12 +7,13 @@
 position = Vector2( 0, 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 39, 170 )
 
 [node name="Slime" parent="." instance=ExtResource( 3 )]
-position = Vector2( 578, 239 )
+position = Vector2( 748, 271 )
 
 [node name="Slime2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 623, 244 )
+position = Vector2( 997, 214 )
 
 [node name="Slime3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 589, 281 )
+position = Vector2( 897, 418 )
