@@ -17,6 +17,9 @@ enum {
 onready var anim_sprite: AnimationPlayer = $PlayerSprite/AnimationPlayer
 
 var state = MOVE
+func _ready():
+	randomize()
+	
 func _physics_process(delta):
 	match state: 
 		MOVE:

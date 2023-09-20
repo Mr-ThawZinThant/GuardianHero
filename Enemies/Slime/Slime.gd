@@ -20,29 +20,32 @@ var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
 
 var state = CHASE
+
+func _ready():
+	state = pick_random_state([IDLE , ROAM])
+	
 func _physics_process(delta):
 	match state:
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 			seek_player()
 			if RoamController.get_time_left() == 0:
-				state = pick_random_state([IDLE , ROAM])
-				RoamController.set_roam_timer(rand_range(1 , 3))
+				update_roam_state()
 		
 		ROAM:
 			seek_player()
 			if RoamController.get_time_left() == 0:
-				state = pick_random_state([IDLE , ROAM])
-				RoamController.set_roam_timer(rand_range(1 , 3))
-			var direction = global_position.direction_to(RoamController.target_position)
-			velocity = velocity.move_toward(direction * MAX_SPEED, acceleration * delta)
+				update_roam_state()
+			accelerates_to_point(RoamController.target_position , delta)
+		
+			if global_position.distance_to(RoamController.target_position) <= MAX_SPEED * delta:
+				update_roam_state()
 			
 		CHASE:
 			var player = AggroZone.player
 			#has founded player
 			if player != null:
-				var direction = global_position.direction_to(player.global_position)
-				velocity = velocity.move_toward(direction * MAX_SPEED, acceleration * delta)
+				accelerates_to_point(player.global_position , delta)
 			else: 
 				state = IDLE
 		ATTACK:
@@ -53,6 +56,15 @@ func _physics_process(delta):
 			
 	velocity = move_and_slide(velocity)
 
+func accelerates_to_point(point , delta):
+	var direction = global_position.direction_to(point)
+	velocity = velocity.move_toward(direction * MAX_SPEED, acceleration * delta)
+	sprite.flip_h = velocity.x < 0
+
+func update_roam_state():
+	state = pick_random_state([IDLE , ROAM])
+	RoamController.set_roam_timer(rand_range(1 , 3))
+	
 func pick_random_state(state_list):
 	state_list.shuffle()
 	return state_list.pop_front()
