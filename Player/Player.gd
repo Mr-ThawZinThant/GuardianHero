@@ -25,6 +25,7 @@ func _physics_process(delta):
 		MOVE:
 			walk(delta)
 		
+		
 func apply_friction(dir):
 	if dir.length() > 0:
 		velocity = lerp(velocity, dir * speed, acceleration)
