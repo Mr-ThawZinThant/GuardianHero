@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/screenshot (3).png-0424bd382555714670c1e6437741b003.stex"
+path="res://.import/inventory.png-162414da6d9585c35b075a71fac140e6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Super_Retro_World_Interior_pack_week42/every_packs_screenshots/screenshot (3).png"
-dest_files=[ "res://.import/screenshot (3).png-0424bd382555714670c1e6437741b003.stex" ]
+source_file="res://UI/Inventory/inventory.png"
+dest_files=[ "res://.import/inventory.png-162414da6d9585c35b075a71fac140e6.stex" ]
 
 [params]
 
@@ -24,7 +24,7 @@ flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false

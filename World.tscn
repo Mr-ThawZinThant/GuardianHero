@@ -1,17 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/Slime/Slime.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/mystic_woods_free_2.1(1)/sprites/tilesets/grass.png" type="Texture" id=4]
 
 [node name="World" type="Node2D"]
 position = Vector2( 0, 6 )
-
-[node name="BackgroundGrass" type="Sprite" parent="."]
-position = Vector2( 782, 523 )
-scale = Vector2( 182.25, 134.75 )
-texture = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
