@@ -43,3 +43,5 @@ func walk(delta):
 func move():
 	velocity = move_and_slide(velocity)
 	
+
+

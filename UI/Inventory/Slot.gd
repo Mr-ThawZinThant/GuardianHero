@@ -1,16 +1,8 @@
 extends Panel
 
+onready var itemTextureRect = $ItemTextureRect
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func display_item(item):
+	if item is Item:
+		itemTextureRect.texture = load("res://UI/Items/Potions/mana_potion.png")
+		
