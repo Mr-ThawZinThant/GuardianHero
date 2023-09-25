@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/Inventory/Slot.gd" type="Script" id=1]
 [ext_resource path="res://UI/Inventory/Inventory_Slot.png" type="Texture" id=2]
+[ext_resource path="res://UI/Inventory/Inventory_Slot_empty.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -15,12 +16,16 @@ custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 
 [node name="ItemTextureRect" type="TextureRect" parent="."]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 49.0
-margin_bottom = 46.0
-expand = true
+anchor_left = 0.345455
+anchor_top = 0.32
+anchor_right = 0.636364
+anchor_bottom = 0.64
+texture = ExtResource( 3 )
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="ItemAmount" type="Label" parent="ItemTextureRect"]
+margin_right = 40.0
+margin_bottom = 14.0
