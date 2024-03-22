@@ -15,6 +15,5 @@ data_*/
 mono_crash.*.json
 
 # project config ignore
-project.godot
 addons/
 assets/
