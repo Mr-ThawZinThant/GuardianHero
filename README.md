@@ -1,6 +1,6 @@
 # Guradian Hero
 
-this project is made by godot 3 + gdscript
+this project is made with godot 3 + gdscript
 
 ## Built With
 
