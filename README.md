@@ -1,5 +1,17 @@
-# TopDown_RPG Game
+# Guradian Hero
 
-This is a side project made by members of Byte Busters
+this project is made by godot 3 + gdscript
 
-- pixel artist in need 
+## Built With
+
+* [Godot](https://godotengine.org/)
+
+
+## Authors
+
+* **Chocodev**
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
