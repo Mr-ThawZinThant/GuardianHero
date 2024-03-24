@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Bar.gd" type="Script" id=1]
+[ext_resource path="res://UI/Bar/Base.png" type="Texture" id=2]
+[ext_resource path="res://UI/Bar/HealthBar.png" type="Texture" id=3]
+[ext_resource path="res://UI/Bar/StaminaBar.png" type="Texture" id=4]
+
+[node name="Bar" type="MarginContainer"]
+margin_top = 6.0
+margin_right = 40.0
+margin_bottom = 46.0
+script = ExtResource( 1 )
+
+[node name="Bars" type="Node2D" parent="."]
+
+[node name="Base" type="Node2D" parent="Bars"]
+
+[node name="Sprite" type="Sprite" parent="Bars/Base"]
+position = Vector2( 131.5, 39.625 )
+scale = Vector2( 2.43519, 2.4527 )
+texture = ExtResource( 2 )
+
+[node name="HealthBar" type="Node2D" parent="Bars/Base"]
+position = Vector2( 131.5, 39.625 )
+scale = Vector2( 2.43519, 2.4527 )
+
+[node name="TextureProgress" type="TextureProgress" parent="Bars/Base/HealthBar"]
+margin_left = -16.2205
+margin_top = -13.3017
+margin_right = 40.7795
+margin_bottom = -4.30166
+grow_horizontal = 0
+value = 100.0
+texture_under = ExtResource( 3 )
+
+[node name="ManaBar" type="Node2D" parent="Bars/Base"]
+position = Vector2( 131.5, 39.625 )
+scale = Vector2( 2.43519, 2.4527 )
+
+[node name="StaminaBar" type="Node2D" parent="Bars/Base"]
+position = Vector2( 131.5, 39.625 )
+scale = Vector2( 2.43519, 2.4527 )
+
+[node name="TextureProgress" type="TextureProgress" parent="Bars/Base/StaminaBar"]
+margin_left = -14.5779
+margin_top = -1.88568
+margin_right = 37.4221
+margin_bottom = 3.11432
+texture_under = ExtResource( 4 )

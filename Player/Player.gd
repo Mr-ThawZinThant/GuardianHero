@@ -1,10 +1,18 @@
 extends KinematicBody2D
 
+const DAMAGE_AMOUNT = 10
+
 export(Resource) var PlayerMovement
 
 export var acceleration = 0.1
 export var speed = 200
 export var friction = 0.1
+export var health = 100
+#singals
+signal give_healthInfo(health)
+signal died()
+signal health_changed()
+signal level_up()
 
 var velocity: Vector2 = Vector2.ZERO
 
@@ -42,6 +50,6 @@ func walk(delta):
 
 func move():
 	velocity = move_and_slide(velocity)
-	
+
 
 
